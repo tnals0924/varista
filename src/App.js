@@ -14,9 +14,9 @@ function App() {
     <>
       <Toaster />
       <Routes>
-        <Route path="/" element={ (user.isAuthenticated) ? <Main /> : <Login />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/" element={(user.isAuthenticated) ? <Main /> : <Login />} />
+        <Route path="/login" element={(user.isAuthenticated) ? <Main /> : <Login />} />
+        <Route path="/signup" element={(user.isAuthenticated) ? <Main /> : <Signup />} />
       </Routes>
     </>
   );

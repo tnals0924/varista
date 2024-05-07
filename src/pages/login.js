@@ -58,6 +58,10 @@ const Login = () => {
         }
     }
 
+    const navigateSignup = () => {
+        navigate('signup');
+    }
+
     return (
         <div className="background">
             <div className="login_rect">
@@ -67,6 +71,11 @@ const Login = () => {
                     <input className="user_input" type="email" ref={email} onKeyDown={handleEnterKeyDown}></input>
                     <label className="login_label">비밀번호</label>
                     <input className="user_input" type="password" ref={password} onKeyDown={handleEnterKeyDown}></input>
+                </div>
+                <div id="signup">
+                    <button id="to_signup" onClick={navigateSignup}>
+                        계정이 없으신가요?
+                    </button>
                 </div>
 
                 <button className="login_button" onClick={handleLogin}>로그인</button>
