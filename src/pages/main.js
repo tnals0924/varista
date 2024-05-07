@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { userState } from '../atoms/user';
 import { useRecoilState } from 'recoil';
 import { toast } from 'react-hot-toast';
-import { auth, signOut } from '../auth/firebase';
+import { auth, signOut } from '../firebase/firebase';
 import '../style/main.css';
 import signOutLogo from '../assets/signout.png';
 import signOutHoverLogo from '../assets/signout_hover.png';

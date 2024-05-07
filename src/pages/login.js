@@ -1,6 +1,6 @@
 import '../App.css';
 import '../style/login.css';
-import { auth, signInWithEmailAndPassword } from '../auth/firebase';
+import { auth, signInWithEmailAndPassword } from '../firebase/firebase';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { userState } from '../atoms/user';

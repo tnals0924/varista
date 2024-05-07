@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import '../style/signup.css';
 import toast from 'react-hot-toast';
-import { auth, createUserWithEmailAndPassword, updateProfile } from '../auth/firebase';
+import { auth, createUserWithEmailAndPassword, updateProfile } from '../firebase/firebase';
 import { useNavigate } from 'react-router-dom';
 
 const getErrorMessage = (error) => {
