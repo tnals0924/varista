@@ -1,0 +1,77 @@
+.signup_rect {
+    margin: auto;
+    width: 999px;
+    height: 778px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #FEFEFE;
+    border-radius: 33px;
+    box-shadow: 0 15px 30px -2px rgba(0, 0, 0, 0.04);
+}
+
+.signup_body {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.signup_logo {
+    width: 540px;
+    height: 740px;
+}
+
+.signup_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: auto;
+}
+
+.signup_label {
+    text-align: left;
+    margin-right: auto;
+    display: block;
+    padding-top: 30px;
+    padding-bottom: 14px;
+    font-family: Pretendard-Regular;
+    font-size: 18px;
+    color: #747474;
+}
+
+.signup_button {
+    margin-top: 72px;
+    width: 336px;
+    height: 56px;
+    border-radius: 10px;
+    background-color: #0066FF;
+    border-style: none;
+    font-family: Pretendard Variable;
+    font-weight: bold;
+    font-size: 22px;
+    text-shadow: 0, 0, 0, 4.5px;
+    color: white;
+    text-align: center;
+}
+
+.signup_button:hover {
+    background-color: #1472FF;
+}
+
+.signup_button:active {
+    background-color: #0057D9;
+}
+
+.signup_title {
+    margin-bottom: -5px;
+    margin-top: 20px;
+    text-align: left;
+    margin-right: auto;
+    font-family: Pretendard Variable;
+    font-weight: bold;
+    font-size: 38px;
+}
