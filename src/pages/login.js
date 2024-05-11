@@ -1,5 +1,4 @@
 import '../App.css';
-import '../style/login.css';
 import { auth, signInWithEmailAndPassword } from '../firebase/firebase';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -59,26 +58,33 @@ const Login = () => {
     }
 
     const navigateSignup = () => {
-        navigate('signup');
+        navigate('/signup');
     }
 
     return (
         <div className="background">
-            <div className="login_rect">
-                <label className="welcome_label">환영합니다.</label>
-                <div className="login_form">
-                    <label className="login_label">이메일</label>
+           <div className="rect w-[469px] h-[523px] shadow[0_15px_30px_-2px_rgba(0, 0, 0, 0.04)]">
+                <label className="mt-[40px] font-pre_var font-light text-[38px] tracking-[3%]">
+                    환영합니다.
+                </label>
+                <div className="ml-[60px] mr-auto mb-[28px]">
+                    <label className="label">
+                        이메일
+                    </label>
                     <input className="user_input" type="email" ref={email} onKeyDown={handleEnterKeyDown}></input>
-                    <label className="login_label">비밀번호</label>
+                    <label className="label">비밀번호</label>
                     <input className="user_input" type="password" ref={password} onKeyDown={handleEnterKeyDown}></input>
                 </div>
-                <div id="signup">
-                    <button id="to_signup" onClick={navigateSignup}>
+                <div className="mr-auto ml-[60px] flex items-start">
+                    <button className="text-[#4a4a4a] font-pre_reg font-normal text-[15px] underline" onClick={navigateSignup}>
                         계정이 없으신가요?
                     </button>
                 </div>
-
-                <button className="login_button" onClick={handleLogin}>로그인</button>
+                <button className="button mt-[28px] text-shadow shadow-white"
+                        onClick={handleLogin}
+                >
+                    로그인
+                </button>
             </div>
         </div>
     );

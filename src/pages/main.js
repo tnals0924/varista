@@ -3,7 +3,6 @@ import { userState } from '../atoms/user';
 import { useRecoilState } from 'recoil';
 import { toast } from 'react-hot-toast';
 import { auth, signOut } from '../firebase/firebase';
-import '../style/main.css';
 import signOutLogo from '../assets/signout.png';
 import signOutHoverLogo from '../assets/signout_hover.png';
 import { useState, useRef } from 'react';
@@ -88,15 +87,21 @@ const Main = () => {
     }
 
     return (
-        <div className="main_background">
-            <div className="header">
-                <button id="signout" onClick={handleSignOut} onMouseOver={() => setHover(true)} onMouseOut={() => setHover(false)}>
+        <div className="background flex-col justify-start">
+            <div className="w-screen h-[120px] flex flex-row justify-end items-start">
+                <button className="w-[24px] h-[24px] mt-[44.5px] mr-[30px] border-none"
+                        onClick={handleSignOut} 
+                        onMouseOver={() => setHover(true)} 
+                        onMouseOut={() => setHover(false)}
+                >
                     <img src={(isHovered) ? signOutHoverLogo : signOutLogo} alt=""/>
                 </button>
-                <label id="user_name">{user.name} 님</label>
+                <label className="mr-[30px] mt-[40px] text-center font-pre_var font-bold text-[22px]">
+                    {user.name} 님
+                </label>
             </div>
-            <div className="rect_container">
-                <div className="main_rect">
+            <div className="w-[1762px] h-[860px] flex flex-row justify-center items-center">
+                <div className="rect w-[803px] h-[918px] shadow[0_15px_30px_-2px_rgba(0, 0, 0, 0.04)]">
                     <label>
                         메인 페이지입니다. {user.uid} {user.name}
                     </label>
@@ -158,15 +163,20 @@ const Main = () => {
                         />
                         strHungarian
                     </label>
-                    <textarea placeholder="내용을 입력해 주세요." ref={contents}></textarea>
-                    <button 
+                    <textarea 
+                        className="resize-none w-full h-1/3"
+                        placeholder="내용을 입력해 주세요." 
+                        ref={contents}>
+                    </textarea>
+                    <button
+                        className="button"
                         onClick={onSubmit}
                         disabled={isLoading}
                     >
                         추천받기
                     </button>
                 </div>
-                <div className="main_rect">
+                <div className="rect w-[803px] h-[918px] shadow[0_15px_30px_-2px_rgba(0, 0, 0, 0.04)]">
                     {result
                         .filter((value, index) => (index >= 2))
                         .map((value, index) => (

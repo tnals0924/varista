@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-import '../style/signup.css';
 import toast from 'react-hot-toast';
 import { auth, createUserWithEmailAndPassword, updateProfile } from '../firebase/firebase';
 import { useNavigate } from 'react-router-dom';
@@ -71,21 +70,23 @@ const Signup = () => {
 
     return (
         <div className="background">
-            <div className="signup_rect">
-                <div className="signup_body">
-                    <div className="signup_logo">
+            <div className="rect w-[999px] h-[778px] shadow[0_15px_30px_-2px_rgba(0, 0, 0, 0.04)]">
+                <div className="m-auto flex flex-row justify-start items-center">
+                    <div className="w-[540px] h-[740px]">
                     </div>
-                    <div className="signup_form">
-                        <label className="signup_title">회원가입</label>
-                        <label className="signup_label">이름</label>
+                    <div className="mr-auto flex flex-col justify-center items-center">
+                        <label className="mr-auto mb-[-5px] mt-[20px] text-left font-pre_var font-bold text-[38px]">
+                            회원가입
+                        </label>
+                        <label className="label">이름</label>
                         <input className="user_input" type="text" ref={name}></input>
-                        <label className="signup_label">이메일</label>
+                        <label className="label">이메일</label>
                         <input className="user_input" type="email" ref={email}></input>
-                        <label className="signup_label">비밀번호</label>
+                        <label className="label">비밀번호</label>
                         <input className="user_input" type="password" ref={password}></input>
-                        <label className="signup_label">비밀번호 확인</label>
+                        <label className="label">비밀번호 확인</label>
                         <input className="user_input" type="password" ref={password_check}></input>
-                        <button className="signup_button" onClick={handleSignup}>가입하기</button>
+                        <button className="button mt-[72px] text-shadow shadow-white" onClick={handleSignup}>가입하기</button>
                     </div>
                 </div>
             </div>
