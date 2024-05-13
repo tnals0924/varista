@@ -1,11 +1,14 @@
 export const NamingConvention = [
-    { name: 'snake_case', logo: '' }, 
-    { name: 'camelCase', logo: '' }, 
-    { name: 'PascalCase', logo: '' }, 
-    { name: 'HungarianCase', logo: '' }
+    { name: 'snake_case', icon: 'assets/snake.png' }, 
+    { name: 'camelCase', icon: 'assets/camel.png' }, 
+    { name: 'PascalCase', icon: 'assets/pascal.png' }, 
+    { name: 'HungarianCase', icon: 'assets/hungarian.png' }
 ];
 
-export const NameType = ['변수', '함수'];
+export const NameType = [
+    { name: '변수', icon: 'assets/var.png' },
+    { name: '함수', icon: 'assets/function.png' }
+];
 
 export const Language = [
     { name: "Java", logo: "" },

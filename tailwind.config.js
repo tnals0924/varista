@@ -6,9 +6,14 @@ module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
     extend: {
+      screens: {
+        'dr': '1660px',
+        'fhd': '1920px'
+      },
       fontFamily: {
         'pre_var': ['Pretendard Variable'],
-        'pre_reg': ['Pretendard Regular']
+        'pre_reg': ['Pretendard Regular'],
+        'd2': ['D2Coding']
       },
       textShadow: {
         sm: '0 1px 2px var(--tw-shadow-color)',

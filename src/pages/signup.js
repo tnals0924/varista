@@ -70,7 +70,7 @@ const Signup = () => {
 
     return (
         <div className="background">
-            <div className="rect w-[999px] h-[778px] shadow[0_15px_30px_-2px_rgba(0, 0, 0, 0.04)]">
+            <div className="rect w-[999px] h-[778px]">
                 <div className="m-auto flex flex-row justify-start items-center">
                     <div className="w-[540px] h-[740px]">
                     </div>

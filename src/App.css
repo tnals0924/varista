@@ -27,7 +27,19 @@ html, body {
     }
 
     .rect {
-        @apply bg-[#fefefe] m-auto flex flex-col justify-start items-center rounded-[33px]
+        @apply bg-[#fefefe] m-auto flex flex-col justify-start items-center rounded-[33px] shadow-lg
+    }
+
+    .select_type {
+        @apply bg-[#e2e2e2] hover:bg-[#f6f6f6] w-[60px] h-[60px] mr-[10px] border-[1px] border-[#d2d2d2] rounded-[15px] shadow-md
+    }
+
+    .selected_type {
+        @apply bg-[#ffffff] w-[60px] h-[60px] mr-[10px] border-[1px] border-[#d2d2d2] rounded-[15px] shadow-md
+    }
+
+    .main_label {
+        @apply text-[#747474] font-pre_var font-light text-[18px]
     }
 }
 
@@ -37,5 +49,12 @@ html, body {
     font-family: 'Pretendard-Regular';
     src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
     font-weight: regular;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'D2Coding';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff') format('woff');
+    font-weight: normal;
     font-style: normal;
 }

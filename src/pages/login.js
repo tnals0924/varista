@@ -57,13 +57,9 @@ const Login = () => {
         }
     }
 
-    const navigateSignup = () => {
-        navigate('/signup');
-    }
-
     return (
         <div className="background">
-           <div className="rect w-[469px] h-[523px] shadow[0_15px_30px_-2px_rgba(0, 0, 0, 0.04)]">
+           <div className="rect w-[469px] h-[523px]">
                 <label className="mt-[40px] font-pre_var font-light text-[38px] tracking-[3%]">
                     환영합니다.
                 </label>
@@ -76,7 +72,7 @@ const Login = () => {
                     <input className="user_input" type="password" ref={password} onKeyDown={handleEnterKeyDown}></input>
                 </div>
                 <div className="mr-auto ml-[60px] flex items-start">
-                    <button className="text-[#4a4a4a] font-pre_reg font-normal text-[15px] underline" onClick={navigateSignup}>
+                    <button className="text-[#818181] font-pre_reg font-normal text-[15px] underline" onClick={() => navigate('/signup')}>
                         계정이 없으신가요?
                     </button>
                 </div>
