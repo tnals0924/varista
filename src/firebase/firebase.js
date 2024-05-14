@@ -21,10 +21,12 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getDatabase(app);
+const dbRef = ref(db);
 
 export {
   auth,
   db,
+  dbRef,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   updateProfile,
@@ -34,3 +36,10 @@ export {
   update,
   set
 };
+
+/*
+  results: [] //결과 3개 저장용
+  date: //날짜
+  type: //타입
+  convention: //표기법
+*/

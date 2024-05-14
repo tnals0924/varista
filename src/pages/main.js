@@ -1,11 +1,12 @@
 import { userState } from '../atoms/user';
 import { useRecoilState } from 'recoil';
 import { toast } from 'react-hot-toast';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import  axios from 'axios';
 import { NameType, NamingConvention } from '../constants/enums';
 import CustomRadio from '../components/custom-radio';
 import Navigation from '../components/navigation';
+import RecordAPI from '../firebase/record-api';
 
 const Main = () => {
     const [result, setResult] = useState([]);
@@ -14,6 +15,12 @@ const Main = () => {
     const [namingConvention, setNamingConvention] = useState(0);
     const [isLoading, setLoading] = useState(false);
     const contents = useRef(null);
+
+    useEffect(() => {
+        const input = contents.current.value;
+        const date = new Date().toISOString()
+        RecordAPI.postRecord(user.uid, date, input, nameType, namingConvention, result);
+    }, [result]);
 
     const getDisplayResults = (data) => {
         return data.toString().split('\n').map((value, index) => (
@@ -50,9 +57,9 @@ const Main = () => {
                 { message }
             ).then((res) => {
                 console.log(res);
-                //const newResults = getResultsFromMessage(res);
+                const newResults = getDisplayResults(res.data.message);
 
-                setResult(getDisplayResults(res.data.message));
+                setResult(newResults.filter((value, index) => (index >= 2)));
                 setLoading(false);
             }),
             {
@@ -128,8 +135,7 @@ const Main = () => {
                     <div className="w-[735px] h-[587px] flex flex-col justify-center items-center border-solid border-[0.5px] border-[#d2d2d2] rounded-[10px]">
                         {
                             (result.length > 0) ? 
-                                result.filter((value, index) => (index >= 2))
-                                  .map((value, index) => (
+                                result.map((value, index) => (
                                     <span className="mb-[20px] font-d2 font-bold text-[25px]"
                                           key={index}
                                     >

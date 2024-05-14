@@ -23,7 +23,7 @@ html, body {
     }
 
     .button {
-        @apply bg-[#0066ff] hover:bg-[#1472ff] active:bg-[#0057d9] w-[335px] h-[56px] rounded-[10px] border-none font-pre_var font-bold text-[22px] text-white text-center
+        @apply bg-[#0066ff] hover:bg-[#1472ff] disabled:bg-[#0040a0] active:bg-[#0057d9] w-[335px] h-[56px] rounded-[10px] border-none font-pre_var font-bold text-[22px] text-white disabled:text-[#9d9c9c] text-center
     }
 
     .rect {
