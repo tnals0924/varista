@@ -4,7 +4,6 @@ import { licenseState, userState } from '../atoms/user';
 import RecordAPI from '../firebase/record-api';
 import { useEffect, useState } from 'react';
 import Record from '../components/record';
-import { toast } from 'react-hot-toast';
 
 function MyPage() {
     const [records, setRecords] = useState(null);
