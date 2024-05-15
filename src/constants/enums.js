@@ -9,14 +9,3 @@ export const NameType = [
     { name: '변수', icon: 'assets/var.png' },
     { name: '함수', icon: 'assets/function.png' }
 ];
-
-export const Language = [
-    { name: "Java", logo: "" },
-    { name: "Python", logo: "" },
-    { name: "C++", logo: "" },
-    { name: "JavaScript", logo: "" },
-    { name: "TypeScript", logo: "" },
-    { name: "Kotlin", logo: "" },
-    { name: "C", logo: "" },
-    { name: "C#", logo: "" }
-]
