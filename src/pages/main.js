@@ -35,7 +35,7 @@ const Main = () => {
 
     const getDisplayResults = (data) => {
         return data.toString().split('\n').map((value, index) => (
-            value + ((nameType === 1) ? "()" : "")
+            value.substr(3) + ((nameType === 1) ? "()" : "")
         ));
     }
 
