@@ -7,6 +7,9 @@ import { NameType, NamingConvention } from '../constants/enums';
 import CustomRadio from '../components/custom-radio';
 import Navigation from '../components/navigation';
 import RecordAPI from '../firebase/record-api';
+import Result from '../components/result';
+import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css';
 
 const Main = () => {
     const [result, setResult] = useState([]);
@@ -15,11 +18,18 @@ const Main = () => {
     const [namingConvention, setNamingConvention] = useState(0);
     const [isLoading, setLoading] = useState(false);
     const contents = useRef(null);
+    const isResultMounted = useRef(false);
 
     useEffect(() => {
-        const input = contents.current.value;
-        const date = new Date().toISOString()
-        RecordAPI.postRecord(user.uid, date, input, nameType, namingConvention, result);
+        if (!isResultMounted.current) {
+            isResultMounted.current = true
+        } else {
+            const input = contents.current.value;
+            if (input !== "") {
+                const date = new Date().toISOString()
+                RecordAPI.postRecord(user.uid, date, input, nameType, namingConvention, result);
+            }
+        }
     }, [result]);
 
     const getDisplayResults = (data) => {
@@ -88,7 +98,8 @@ const Main = () => {
                         <div className="mb-[19px] pr-[16px] flex flex-row justify-center">
                             {
                                 NameType.map((value, index) => (
-                                    <CustomRadio icon={value.icon}
+                                    <CustomRadio key={index} 
+                                                 icon={value.icon}
                                                  isSelected={nameType === index}
                                                  onClick={() => {handleTypeChange(index)}}
                                     />
@@ -105,7 +116,8 @@ const Main = () => {
                         <div className="mb-[19px] pr-[16px] flex flex-row justify-center">
                             {
                                 NamingConvention.map((value, index) => (
-                                    <CustomRadio icon={value.icon}
+                                    <CustomRadio key={index}
+                                                 icon={value.icon}
                                                  isSelected={namingConvention === index}
                                                  onClick={() => {handleConventionChange(index)}}
                                     />
@@ -114,7 +126,7 @@ const Main = () => {
                     </div>
                     </div>
                     <textarea 
-                        className="resize-none w-[735px] h-[350px] pl-[10px] pt-[10px] border-[0.5px] border-solid border-[#d2d2d2] focus:border-[#579aff] focus:border-[2px] rounded-[10px] font-pre_var"
+                        className="resize-none w-[735px] h-[530px] pl-[10px] pt-[10px] border-[0.5px] border-solid border-[#d2d2d2] focus:border-[#579aff] focus:border-[2px] rounded-[10px] font-pre_var"
                         placeholder="내용을 입력해 주세요."
                         ref={contents}>
                     </textarea>
@@ -126,25 +138,24 @@ const Main = () => {
                         추천받기
                     </button>
                 </div>
-                <div className="rect w-[803px] h-[918px] dr:ml-[20px] max-dr:mt-[20px]">
-                    <div className="flex justify-center items-center mr-auto">
-                        <label className="ml-[34px] mt-[37px] mb-[17px] font-pre_reg font-medium text-[30px]">
-                            결과를 확인해 보세요!
+                <div className={(result.length > 0) ? ("w-[803px] h-[918px] dr:ml-[20px] max-dr:mt-[20px] flex justify-center items-center flex-col") : ("hidden")}>
+                    <div className="flex flex-col justify-center items-center">
+                        <label className="ml-[34px] mt-[37px] mb-[17px] font-pre_var font-semibold text-[30px]">
+                            추천 결과를 확인해 보세요!
                         </label>
+                        <img src='assets/result.svg' alt='' />
                     </div>
-                    <div className="w-[735px] h-[587px] flex flex-col justify-center items-center border-solid border-[0.5px] border-[#d2d2d2] rounded-[10px]">
+                    <div className="mt-[20px] flex flex-col justify-center items-center">
                         {
-                            (result.length > 0) ? 
-                                result.map((value, index) => (
-                                    <span className="mb-[20px] font-d2 font-bold text-[25px]"
-                                          key={index}
-                                    >
-                                        {value}
-                                    </span>)
-                                ) 
-                            : <span className="font-pre_reg font-normal text-[25px] text-[#d2d2d2]">결과가 없습니다...</span>
-                            
+                            result.map((value, index) => (
+                                <Result key={index}
+                                        resultText={value} />
+                            ))
                         }
+                        <Tooltip id='result'
+                                 backgroundColor='gray'
+                                 place='right'
+                        />
                     </div>
                 </div>
             </div>

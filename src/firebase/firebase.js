@@ -36,10 +36,3 @@ export {
   update,
   set
 };
-
-/*
-  results: [] //결과 3개 저장용
-  date: //날짜
-  type: //타입
-  convention: //표기법
-*/
