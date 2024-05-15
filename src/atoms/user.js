@@ -12,3 +12,11 @@ export const userState = atom({
   },
   effects_UNSTABLE: [persistAtom],
 });
+
+export const licenseState = atom({
+  key: "licenseState",
+  default: {
+    isPro: false
+  },
+  effects_UNSTABLE: [persistAtom],
+});

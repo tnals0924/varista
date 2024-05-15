@@ -1,4 +1,4 @@
-import { userState } from '../atoms/user';
+import { licenseState, userState } from '../atoms/user';
 import { useRecoilState } from 'recoil';
 import { toast } from 'react-hot-toast';
 import { useState, useRef, useEffect } from 'react';
@@ -14,6 +14,7 @@ import 'react-tooltip/dist/react-tooltip.css';
 const Main = () => {
     const [result, setResult] = useState([]);
     const [user, setUserState] = useRecoilState(userState);
+    const [license, setLicense] = useRecoilState(licenseState);
     const [nameType, setNameType] = useState(0);
     const [namingConvention, setNamingConvention] = useState(0);
     const [isLoading, setLoading] = useState(false);
@@ -26,7 +27,7 @@ const Main = () => {
         } else {
             const input = contents.current.value;
             if (input !== "") {
-                const date = new Date().toISOString()
+                const date = new Date().toISOString();
                 RecordAPI.postRecord(user.uid, date, input, nameType, namingConvention, result);
             }
         }
@@ -59,7 +60,8 @@ const Main = () => {
 
         setLoading(true);
 
-        const message = `'${contents.current.value}'라는 내용의 ${NameType[nameType].name} 이름을 ${NamingConvention[namingConvention].name}로 3개 추천해줘`
+        const count = (license.isPro) ? 5 : 3;
+        const message = `'${contents.current.value}'라는 내용의 ${NameType[nameType].name} 이름을 ${NamingConvention[namingConvention].name}로 ${count}개 추천해줘.`
 
         toast.promise(
             axios.post(
