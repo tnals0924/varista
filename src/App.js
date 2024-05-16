@@ -4,12 +4,12 @@ import Main from './pages/main';
 import Login from './pages/login';
 import Signup from "./pages/signup";
 import { Toaster } from 'react-hot-toast';
-import { useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { userState } from "./atoms/user";
 import MyPage from "./pages/mypage";
 
 function App() {
-  const [user, setUserState] = useRecoilState(userState);
+  const user = useRecoilValue(userState);
 
   return (
     <>

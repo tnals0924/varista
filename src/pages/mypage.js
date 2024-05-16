@@ -1,13 +1,13 @@
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import Navigation from '../components/navigation';
 import { licenseState, userState } from '../atoms/user';
 import RecordAPI from '../firebase/record-api';
 import { useEffect, useState } from 'react';
 import Record from '../components/record';
 
-function MyPage() {
+const MyPage = () => {
     const [records, setRecords] = useState(null);
-    const [user, setUserState] = useRecoilState(userState);
+    const user = useRecoilValue(userState);
     const [license, setLicense] = useRecoilState(licenseState);
 
     const togglePro = (event) => {

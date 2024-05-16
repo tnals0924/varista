@@ -1,8 +1,6 @@
 import React from "react";
 
-function CustomRadio(props) {
-    const { icon, isSelected, onClick } = props;
-
+const CustomRadio = ({ icon, isSelected, onClick }) => {
     return (
         <button className={isSelected ? "selected_type transition-all" : "select_type transition-all"}
                 onClick={onClick}

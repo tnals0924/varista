@@ -6,7 +6,7 @@ import { useRecoilState } from "recoil";
 import { useNavigate } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
 
-function Navigation() {
+const Navigation = () => {
     const [user, setUserState] = useRecoilState(userState);
     const [isSignOutHovered, setSignOutHover] = useState(false);
     const [isMyPageHovered, setMyPageHover] = useState(false);

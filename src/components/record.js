@@ -2,8 +2,7 @@ import { NameType, NamingConvention } from '../constants/enums'
 import { useState } from 'react';
 import formatDate from '../utils/date-format';
 
-function Record(props) {
-    const { date, input, type, conventions, results, onClick } = props;
+const Record = ({ date, input, type, conventions, results, onClick }) => {
     const [showDetails, setShowDetails] = useState(false);
 
     return (

@@ -2,8 +2,7 @@ import { toast } from 'react-hot-toast';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useState } from 'react';
 
-function Result(props) {
-    const { resultText } = props;
+const Result = ({ resultText }) => {
     const [isHovered, setHover] = useState(false);
 
     return (
