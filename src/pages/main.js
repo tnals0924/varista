@@ -1,5 +1,5 @@
 import { licenseState, userState } from '../atoms/user';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { toast } from 'react-hot-toast';
 import { useState, useRef, useEffect } from 'react';
 import  axios from 'axios';
@@ -13,8 +13,8 @@ import 'react-tooltip/dist/react-tooltip.css';
 
 const Main = () => {
     const [result, setResult] = useState([]);
-    const [user, setUserState] = useRecoilState(userState);
-    const [license, setLicense] = useRecoilState(licenseState);
+    const user = useRecoilValue(userState);
+    const license = useRecoilValue(licenseState);
     const [nameType, setNameType] = useState(0);
     const [namingConvention, setNamingConvention] = useState(0);
     const [isLoading, setLoading] = useState(false);
